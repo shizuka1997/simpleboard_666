@@ -8,9 +8,10 @@
         {{ session('message') }}
     @endif
 
-    <h1>Posts aaa</h1>
+    <h1>{{ $title }}</h1>
+    <h3>{{ $name }}</h3>
 
-    @foreach($posts as $post)
+    @foreach( $posts3 as $post)
 
         <div class="card">
             <div class="card-body">
@@ -18,9 +19,9 @@
                 <p class="card-text">{{ $post->content }}</p>
 
                 <div class="d-flex" style="height: 36.4px;">
-                    <a href="/posts/{{ $post->id }}" class="btn btn-outline-primary">Show</a>
-                    <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit</a>
-                    <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
+                    <a href="/posts_001/{{ $post->id }}" class="btn btn-outline-primary">Show</a>
+                    <a href="/posts_001/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit</a>
+                    <form action="/posts_001/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-outline-danger">Delete</button>
@@ -29,5 +30,5 @@
             </div>
         </div>
     @endforeach
-    <a href="/aaa/create">New aaa Post</a>
+    <a href="/posts_001/create">New aaa Post</a>
 @endsection

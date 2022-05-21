@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Car;
 use Illuminate\Http\Request;
 
-class PostaaaController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class PostaaaController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
         $out = [];
-        $out['posts3'] = $posts;
-        $out['title'] = 'タイトル';
-        $out['name'] = '名前';
+        // $out['posts3'] = $posts;
+        // $out['title'] = 'タイトル';
+        // $out['name'] = '名前';
         // return view('posts_001.index', compact('posts2'));
-        return view('posts_001.index', $out);
+        return view('car.index', $out);
     }
 
     /**
