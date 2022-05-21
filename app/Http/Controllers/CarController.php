@@ -16,6 +16,10 @@ class CarController extends Controller
     {
         // $posts = Post::all();
         $out = [];
+        $out['title'] = 'タイトル';
+        $out['type01'] = 'タイプ１';
+        $out['type02'] = 'タイプ２';
+        $out['type03'] = 'タイプ３';
         // $out['posts3'] = $posts;
         // $out['title'] = 'タイトル';
         // $out['name'] = '名前';
@@ -30,7 +34,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('posts_001.create');
+        return view('car.create');
     }
 
     /**
@@ -46,12 +50,12 @@ class CarController extends Controller
             'content' => 'required',
         ]);
        
-        $post = new Post();
+        $post = new Car();
         $post->title = $request->input('title');
         $post->content = $request->input('content');
         $post->save();
 
-        return redirect()->route('posts_001.show', ['id' => $post->id])->with('message', 'Post was successfully created.');
+        return redirect()->route('car.show', ['id' => $post->id])->with('message', 'Car was successfully created.');
     }
 
     /**
@@ -60,9 +64,9 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Car $car)
     {
-        return view('posts_001.show', compact('post'));
+        return view('car.show', compact('car'));
     }
 
     /**
@@ -71,9 +75,9 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Car $car)
     {
-        return view('posts_001.edit', compact('post'));
+        return view('car.edit', compact('car'));
     }
 
     /**
@@ -83,18 +87,18 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Car $car)
     {
         $request->validate([
             'title' => 'required',
             'content' => 'required',
         ]);
        
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
-        $post->save();
+        $car->title = $request->input('title');
+        $car->content = $request->input('content');
+        $car->save();
 
-        return redirect()->route('posts_001.show', ['id' => $post->id])->with('message', 'Post was successfully updated.');
+        return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully updated.');
     }
 
     /**
@@ -103,10 +107,11 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Car $car)
     {
-        $post->delete();
+        $car->delete();
+        return redirect()->route('car.index');
         // return redirect()->route('posts_0001');
-        return redirect('posts_001');
+        return redirect('car');
     }
 }
