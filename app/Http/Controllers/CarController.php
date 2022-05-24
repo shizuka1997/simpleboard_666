@@ -50,12 +50,12 @@ class CarController extends Controller
             'content' => 'required',
         ]);
        
-        $post = new Car();
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
-        $post->save();
+        $car = new Car();
+        $car->title = $request->input('title');
+        $car->content = $request->input('content');
+        $car->save();
 
-        return redirect()->route('car.show', ['id' => $post->id])->with('message', 'Car was successfully created.');
+        return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully created.');
     }
 
     /**

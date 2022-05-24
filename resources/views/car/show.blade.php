@@ -6,4 +6,3 @@
     {{ $car->content }} 
 
     <a href="/car/{{ $car->id }}/edit">Edit</a>
-    
