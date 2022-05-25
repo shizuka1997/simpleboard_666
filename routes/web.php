@@ -25,6 +25,7 @@ Route::get('/', function () {
 // Route::get('posts_001/{post}/edit', 'PostaaaController@edit');
 // Route::post('posts_001_update/{post}', 'PostaaaController@update');
 // Route::post('posts_001_delete/{post}', 'PostaaaController@destroy');
+Route::resource('car', 'CarController');
 Route::get('car', 'CarController@index');
 Route::get('car/create', 'CarController@create');
 Route::post('car', 'CarController@store');
@@ -37,4 +38,4 @@ Route::post('car_delete/{car}', 'CarController@destroy');
 //    URL::forceScheme('https');
 // }
 
-// ->name(posts.show);
+

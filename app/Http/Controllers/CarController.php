@@ -12,19 +12,20 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // ＴＯＰページの表示
     public function index()
     {
-        // $posts = Post::all();
-        $out = [];
-        $out['title'] = 'タイトル';
-        $out['type01'] = 'タイプ１';
-        $out['type02'] = 'タイプ２';
-        $out['type03'] = 'タイプ３';
-        // $out['posts3'] = $posts;
+        $car = Car::all();
+
+        return view('car.index', compact('car'));
+
+        // $out = [];
         // $out['title'] = 'タイトル';
-        // $out['name'] = '名前';
-        // return view('posts_001.index', compact('posts2'));
-        return view('car.index', $out);
+        // $out['type01'] = 'タイプ１';
+        // $out['type02'] = 'タイプ２';
+        // $out['type03'] = 'タイプ３';
+
+        // return view('car.index', $out);
     }
 
     /**
@@ -32,9 +33,10 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // 新規投稿 作成画面 の表示
     public function create()
     {
-        return view('car.create');
+        return view('car/create');
     }
 
     /**
@@ -43,12 +45,13 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // 新規投稿の保存
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'content' => 'required',
+        // ]);
        
         $car = new Car();
         $car->title = $request->input('title');
@@ -64,6 +67,7 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+    // 個別の投稿ページの表示
     public function show(Car $car)
     {
         return view('car.show', compact('car'));
@@ -75,9 +79,10 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+    // 投稿編集 画面の表示
     public function edit(Car $car)
     {
-        return view('car.edit', compact('car'));
+         return view('car.edit', compact('car'));
     }
 
     /**
@@ -87,12 +92,13 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+    // 投稿の更新を保存
     public function update(Request $request, Car $car)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'content' => 'required',
+        // ]);
        
         $car->title = $request->input('title');
         $car->content = $request->input('content');
@@ -107,11 +113,10 @@ class CarController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+    // 投稿を削除
     public function destroy(Car $car)
     {
         $car->delete();
         return redirect()->route('car.index');
-        // return redirect()->route('posts_0001');
-        return redirect('car');
     }
 }
