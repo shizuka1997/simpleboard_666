@@ -4,7 +4,7 @@
         {{ session('message') }}
     @endif
 
-    {{ $car->title }}
-    {{ $car->content }} 
+    {{ $car->type }}
+    {{ $car->color }} 
 
     <a href="/car/{{ $car->id }}/edit">Edit</a> | 

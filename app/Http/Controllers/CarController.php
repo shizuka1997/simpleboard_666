@@ -54,8 +54,8 @@ class CarController extends Controller
         // ]);
        
         $car = new Car();
-        $car->title = $request->input('title');
-        $car->content = $request->input('content');
+        $car->title = $request->input('type');
+        $car->content = $request->input('color');
         $car->save();
 
         return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully created.');
@@ -100,8 +100,8 @@ class CarController extends Controller
         //     'content' => 'required',
         // ]);
        
-        $car->title = $request->input('title');
-        $car->content = $request->input('content');
+        $car->title = $request->input('type');
+        $car->content = $request->input('color');
         $car->save();
 
         return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully updated.');
