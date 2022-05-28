@@ -34,6 +34,7 @@ Route::get('/', function () {
 // Route::get('car/{no}/edit', 'CarController@edit');
 // Route::post('car_update/{car}', 'CarController@update');
 // Route::post('car_delete/{car}', 'CarController@destroy');
+// 削除　Route::get('writer/{writer_no}', 'WriterController@show')->name('writer.show');
 
 // 初期表示
 Route::get('writer', 'WriterController@index')->name('writer.index');
@@ -41,7 +42,6 @@ Route::get('writer', 'WriterController@index')->name('writer.index');
 Route::get('writer/create', 'WriterController@create');
 // ライターの新規登録を実施
 Route::post('writer_insert', 'WriterController@insert');
-// 削除　Route::get('writer/{writer_no}', 'WriterController@show')->name('writer.show');
 // ライターの編集初期表示
 Route::get('writer/{writer_no}/edit', 'WriterController@edit');
 // ライターの編集を実施
