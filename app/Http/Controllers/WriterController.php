@@ -53,16 +53,7 @@ class WriterController extends Controller
         return redirect()->route('writer.index')->with('message', '登録しました。');
     }
 
-    /**
-     * ライターの編集
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Writer $writer)
-    {
-        return view('writer.edit', compact('writer'));
-    }
+
 
 }
 
