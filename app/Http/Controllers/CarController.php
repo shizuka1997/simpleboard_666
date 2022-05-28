@@ -15,15 +15,14 @@ class CarController extends Controller
     // ＴＯＰページの表示
     public function index()
     {
-        $car = Car::all();
+        $cars = Car::all();
 
-        return view('car.index', compact('car'));
+        return view('car.index', compact('cars'));
 
         // $out = [];
         // $out['title'] = 'タイトル';
         // $out['type01'] = 'タイプ１';
         // $out['type02'] = 'タイプ２';
-        // $out['type03'] = 'タイプ３';
 
         // return view('car.index', $out);
     }
@@ -48,14 +47,14 @@ class CarController extends Controller
     // 新規投稿の保存
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'content' => 'required',
-        // ]);
+        $request->validate([
+            'type' => 'required',
+            'color' => 'required',
+        ]);
        
         $car = new Car();
-        $car->title = $request->input('type');
-        $car->content = $request->input('color');
+        $car->type = $request->input('type');
+        $car->color = $request->input('color');
         $car->save();
 
         return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully created.');
@@ -100,8 +99,8 @@ class CarController extends Controller
         //     'content' => 'required',
         // ]);
        
-        $car->title = $request->input('type');
-        $car->content = $request->input('color');
+        $car->type = $request->input('type');
+        $car->color = $request->input('color');
         $car->save();
 
         return redirect()->route('car.show', ['id' => $car->id])->with('message', 'Car was successfully updated.');
