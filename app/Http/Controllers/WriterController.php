@@ -53,7 +53,42 @@ class WriterController extends Controller
         return redirect()->route('writer.index')->with('message', '登録しました。');
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    // 投稿編集 画面の表示
+    public function edit(Writer $ws)
+    {
+         return view('writer.edit', compact('ws'));
+    }
 
+    /**
+     * 投稿の更新を保存
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Writer $ws)
+    {
+        $request->validate([
+            'w_n' => 'required',
+            'w_a' => 'required',
+            'w_t' => 'required',
+        ]);
+       
+        $ws->name = $request->input('name');
+        $ws->address = $request->input('address');
+        $ws->tel = $request->input('tel');
+        $ws->save();
+
+        return redirect()->route('writer.show', ['id' => $ws->id])->with('message', 'Writer was successfully updated.');
+    }
+
+    
 
 }
 
