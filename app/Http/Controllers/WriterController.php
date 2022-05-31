@@ -54,12 +54,11 @@ class WriterController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 投稿編集 画面の表示
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    // 投稿編集 画面の表示
     public function edit(Writer $ws)
     {
          return view('writer.edit', compact('ws'));
@@ -88,7 +87,17 @@ class WriterController extends Controller
         return redirect()->route('writer.show', ['id' => $ws->id])->with('message', 'Writer was successfully updated.');
     }
 
-    
+        /**
+     * ライターの削除
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Writer $ws)
+    {
+        $post->delete();
+        return redirect()->route('writer.index');
+    }
 
 }
 
