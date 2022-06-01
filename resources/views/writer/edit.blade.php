@@ -21,15 +21,17 @@
 
     <div class="form-group">
         <label for="w_1">ライター名</label>
-        <input type="text" class="form-control" name="w_n" value="{{old('w_name')}}">
+        <textarea class="form-control" name="w_n">{{ $ws->w_name }}</textarea>
     </div>
+
     <div class="form-group">
         <label for="w_2">住所</label>
-        <input type="text" class="form-control" name="w_a" value="{{old('w_address')}}">
+        <textarea class="form-control" name="w_a">{{ $ws->w_address }}</textarea>
     </div>
+
     <div class="form-group">
         <label for="w_3">電話番号</label>
-        <input type="text" class="form-control" name="w_t" value="{{old('w_tel')}}">
+        <textarea class="form-control" name="w_t">{{ $ws->w_tel }}</textarea>
     </div>
 
     <button type="submit" class="btn btn-outline-primary">編集</button>
