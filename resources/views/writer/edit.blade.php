@@ -16,7 +16,7 @@
      </div>
 @endif
 
-<form method="POST" action="/writer_update/{{ $ws->id }}">
+<form action="/writer_update/{{ $ws->id }}">
     {{ csrf_field() }}
 
     <div class="form-group">
