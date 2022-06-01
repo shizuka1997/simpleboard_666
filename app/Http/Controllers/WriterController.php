@@ -95,7 +95,7 @@ class WriterController extends Controller
      */
     public function delete(Writer $ws)
     {
-        $post->delete();
+        $ws->delete();
         return redirect()->route('writer.index');
     }
 
