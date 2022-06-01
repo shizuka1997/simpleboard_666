@@ -21,17 +21,17 @@
 
     <div class="form-group">
         <label for="w_1">ライター名</label>
-        <textarea class="form-control" name="w_n">{{ $ws->w_name }}</textarea>
+        <textarea class="form-control" name="w_n">{{ old('name') == '' ? $ws->name : old('name') }}</textarea>
     </div>
 
     <div class="form-group">
         <label for="w_2">住所</label>
-        <textarea class="form-control" name="w_a">{{ $ws->w_address }}</textarea>
+        <textarea class="form-control" name="w_a">{{ old('address') == '' ? $ws->address : old('address') }}</textarea>
     </div>
 
     <div class="form-group">
         <label for="w_3">電話番号</label>
-        <textarea class="form-control" name="w_t">{{ $ws->w_tel }}</textarea>
+        <textarea class="form-control" name="w_t">{{ old('tel') == '' ? $ws->tel : old('tel') }}</textarea>
     </div>
 
     <button type="submit" class="btn btn-outline-primary">編集</button>

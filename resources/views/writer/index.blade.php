@@ -9,6 +9,7 @@
     @endif
 
     <h1>ライター一覧</h1>
+    <h4><a href="/writer/create">ライター新規作成</a></h4>
 
     @foreach($ws as $writer)
 
@@ -30,5 +31,5 @@
             </div>
         </div>
     @endforeach
-    <a href="/writer/create">ライター新規作成</a>
+
 @endsection
