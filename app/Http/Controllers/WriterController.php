@@ -79,10 +79,10 @@ class WriterController extends Controller
             'w_t' => 'required',
         ]);
        
-        $ws->name = $request->input('name');
-        $ws->address = $request->input('address');
-        $ws->tel = $request->input('tel');
-        $ws->save();
+        $writer->name = $request->input('name');
+        $writer->address = $request->input('address');
+        $writer->tel = $request->input('tel');
+        $writer->save();
 
         return redirect()->route('writer.show', ['id' => $ws->id])->with('message', 'Writer was successfully updated.');
     }
@@ -93,9 +93,9 @@ class WriterController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function delete(Writer $ws)
+    public function delete(Writer $writer)
     {
-        $ws->delete();
+        $writer->delete();
         return redirect()->route('writer.index');
     }
 

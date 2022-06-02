@@ -47,7 +47,7 @@ Route::get('writer/{writer_no}/edit', 'WriterController@edit');
 // ライターの編集を実施
 Route::post('writer_update/{writer_no}', 'WriterController@update');
 // ライターの削除を実施
-Route::post('writer_delete/{writer_no}', 'WriterController@delete');
+Route::delete('writer_delete/{writer_no}', 'WriterController@delete');
 
 // if (env('APP_ENV') === 'local') {
 //    URL::forceScheme('https');
