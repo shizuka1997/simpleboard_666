@@ -115,6 +115,7 @@ class CarController extends Controller
     // 投稿を削除
     public function destroy(Car $car)
     {
+        dd($car);
         $car->delete();
         return redirect()->route('car.index');
     }
